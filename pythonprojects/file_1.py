@@ -1,1 +1,60 @@
-name="shams tabrez"
+import random
+
+list = ["rock", "scissors", "paper"]
+
+compcount = 0
+usercount = 0
+
+x = int(input('''
+Game Start
+1. yes
+2. no
+'''))
+if x == 1:
+    for a in range(1, 6):
+        user_input = int(input('''
+        1. rock
+        2. scissor
+        3. paper
+
+        '''))
+
+        if user_input == 1:
+            uchoice = "rock"
+        elif user_input == 2:
+            uchoice = "scissor"
+        elif user_input == 3:
+            uchoice = "paper"
+
+        compchoice = random.choice(list)
+
+        if compchoice == uchoice:
+            print("comp value", compchoice)
+            print("user value", uchoice)
+            print("game draw")
+
+        elif (uchoice == "rock" and compchoice == "scissors") or (uchoice == "paper" and compchoice == "rock") or (
+                uchoice == "scissors" and compchoice == "paper"):
+            print("comp values", compchoice)
+            print("user values", uchoice)
+            print("you win")
+            usercount = usercount + 1
+        else:
+            print("comp values", compchoice)
+            print("user values", uchoice)
+            print("computer win")
+            compcount = compcount + 1
+
+        if usercount == compcount:
+            print("game draw")
+            print("userscore", usercount)
+            print("comp score", compcount)
+
+        elif usercount > compcount:
+            print("you win the game")
+            print("userscore", usercount)
+            print("comp score", compcount)
+        else:
+            print("computer win the game")
+            print("userscore", usercount)
+            print("comp score", compcount)
